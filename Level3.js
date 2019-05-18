@@ -11,10 +11,17 @@ const dictionary = {
 
 const clearDots = str => str.trim().split('.').join('')
 
-const formatNumber = str => parseFloat(str.trim().split('.').join('').replace(',', '.').replace('D', '').replace('C', ''))
+const formatNumber = str => parseFloat(str.trim().split('.').join('').replace(',', '.'))
 
-const LevelTwoChallenge = (input) => {
-    const allItems = input.split(/  |\n|\t/).filter(item => item !== '')
+const getWhatMatter = input => {
+    const allItemsWithHeader = input.split(/  |\n|\t/).filter(item => item !== '' && item !== ' ' && item !== 'D' && item !== 'C'),
+    indexToRemove = allItemsWithHeader.findIndex(item => item === 'Saldo Atual') + 1
+
+    return allItemsWithHeader.splice(indexToRemove, allItemsWithHeader.length)
+}
+
+const LevelThreeChallenge = (input) => {
+    const allItems = getWhatMatter(input)
 
     const objects = []
     let tempObj = {}
@@ -40,14 +47,14 @@ const LevelTwoChallenge = (input) => {
     return objects
 }
 
-fs.readFile("Level2.txt", (err, buf) => {
+fs.readFile("Level3.txt", (err, buf) => {
     if (err) throw err;
 
     const input = buf.toString()
 
     console.log('Input:\n', input, '\n')
     
-    const output = LevelTwoChallenge(input)
+    const output = LevelThreeChallenge(input)
 
     console.log('Output:\n', output, '\n')
 });
