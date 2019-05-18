@@ -35,6 +35,8 @@ const LevelOneChallenge = (input) => {
 }
 
 fs.readFile("Level1.txt", (err, buf) => {
+    if (err) throw err;
+
     const input = buf.toString()
 
     console.log('Input:\n', input, '\n')
