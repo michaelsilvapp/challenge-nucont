@@ -1,0 +1,24 @@
+{
+  "name": "challenge-nucont",
+  "version": "1.0.0",
+  "description": "A fun challenge to try to enter in nucont :)",
+  "main": "Level1.js",
+  "dependencies": {
+    "fs": "^0.0.1-security"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node Level1.js && Level2.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zEduardofaria/challenge-nucont.git"
+  },
+  "author": "Eduardo Faria Silva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zEduardofaria/challenge-nucont/issues"
+  },
+  "homepage": "https://github.com/zEduardofaria/challenge-nucont#readme"
+}
