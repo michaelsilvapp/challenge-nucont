@@ -17,7 +17,11 @@ const LevelOneChallenge = (input) => {
     for (index in allItems) {
         const keyDic = index % 6
 
-        tempObj[dictionary[keyDic]] = allItems[index].trim()
+        if (keyDic !== 0 && keyDic !== 1) {
+            tempObj[dictionary[keyDic]] = parseInt(allItems[index].trim(), 10)
+        } else {
+            tempObj[dictionary[keyDic]] = allItems[index].trim()
+        }
 
         if (keyDic === 5) {
             tempObj.parent = index - 11 >= 0 ? allItems[index - 11] : null
