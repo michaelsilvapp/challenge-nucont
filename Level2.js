@@ -13,8 +13,10 @@ const clearDots = str => str.trim().split('.').join('')
 
 const formatNumber = str => parseFloat(str.trim().split('.').join('').replace(',', '.').replace('D', '').replace('C', ''))
 
+const getWhatMatter = input => input.split(/  |\n|\t/).filter(item => item !== '')
+
 const LevelTwoChallenge = (input) => {
-    const allItems = input.split(/  |\n|\t/).filter(item => item !== '')
+    const allItems = getWhatMatter(input)
 
     const objects = []
     let tempObj = {}

@@ -9,8 +9,10 @@ const dictionary = {
     5: 'finalBalance'
 }
 
+const getWhatMatter = input => input.split(/,|  |\n/).filter(item => item !== '')
+
 const LevelOneChallenge = (input) => {
-    const allItems = input.split(/,|  |\n/).filter(item => item !== '')
+    const allItems = getWhatMatter(input)
 
     const objects = []
     let tempObj = {}
