@@ -31,7 +31,7 @@ const LevelThreeChallenge = (input) => {
         if (keyDic === 0) {
             tempObj[dictionary[0]] = clearDots(allItems[index])
         } else if (keyDic === 1) {
-            tempObj[dictionary[keyDic]] = allItems[index].trim()
+            tempObj[dictionary[1]] = allItems[index].trim()
         } else {
             tempObj[dictionary[keyDic]] = formatNumber(allItems[index])
         }
