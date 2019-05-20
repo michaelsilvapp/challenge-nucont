@@ -4,7 +4,8 @@
   "description": "A fun challenge to try to enter in nucont :)",
   "main": "Level1.js",
   "dependencies": {
-    "fs": "^0.0.1-security"
+    "fs": "^0.0.1-security",
+    "mongoose": "^5.5.9"
   },
   "devDependencies": {},
   "scripts": {

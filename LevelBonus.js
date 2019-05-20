@@ -1,4 +1,14 @@
-const fs = require("fs");
+const fs = require("fs"),
+mongoose = require('mongoose'),
+AccountsMdl = require('./models/Accounts')
+
+mongoose.connect("mongodb://localhost:27017/challenge")
+
+mongoose.connection.on('error', err => {
+    d.error('MongoDB connection error. Please make sure MongoDB is running.')
+    d.error(`🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 → ${err.message}`)
+    process.exit(0)
+})
 
 const dictionary = {
     1: 'classifier',
@@ -25,10 +35,11 @@ const getWhatMatter = input => {
     return itemsFiltered
 }
 
-const LevelFourChallenge = (input) => {
+const LevelThreeChallenge = (input) => {
     const allItems = getWhatMatter(input)
 
-    const objects = []
+    const objects = [],
+    promises = []
     let tempObj = {}
     for (index in allItems) {
         const keyDic = index % 7
@@ -45,9 +56,12 @@ const LevelFourChallenge = (input) => {
             tempObj.parent = index - 12 >= 0 ? clearDots(allItems[index - 12]) : null
 
             objects.push(tempObj)
+            promises.push(new AccountsMdl(tempObj).save())
             tempObj = {}
         }
     }
+
+    Promise.all(promises)
 
     return objects
 }
@@ -57,7 +71,7 @@ fs.readFile("Level4.txt", (err, buf) => {
 
     const input = buf.toString()
     
-    const output = LevelFourChallenge(input)
+    const output = LevelThreeChallenge(input)
 
     console.log('Output:\n', output, '\n')
 });
