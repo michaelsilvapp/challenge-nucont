@@ -74,6 +74,7 @@ fs.readFile("Level4.txt", (err, buf) => {
     const output = LevelThreeChallenge(input)
 
     console.log('Output:\n', output, '\n')
+    process.exit(0)
 });
 
 
